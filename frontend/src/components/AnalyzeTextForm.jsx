@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api'; // <-- ADD THIS (path is different)
 import { Link } from 'react-router-dom'; // Make sure Link is imported here
 import './AnalyzeTextForm.css';
 
@@ -18,7 +18,7 @@ const AnalyzeTextForm = () => {
 
     try {
       // The backend now returns { success, extractedClaim, verification }
-      const response = await axios.post('/api/alerts/analyze', { text });
+      const response = await api.post('/alerts/analyze', { text }); // <-- TO THIS
       setVerification(response.data.verification); // Store the final verdict
     } catch (err) {
       setError(err.response?.data?.error || 'An internal error occurred.');

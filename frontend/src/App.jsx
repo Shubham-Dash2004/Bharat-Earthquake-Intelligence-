@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import api from './api'; // <-- ADD THIS
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SafetyTips from './pages/SafetyTips';
@@ -45,7 +45,7 @@ function App() {
     try {
       const seenAlerts = JSON.parse(localStorage.getItem(SEEN_ALERTS_KEY)) || [];
       
-      const response = await axios.get('/api/alerts');
+      const response = await api.get('/alerts'); // <-- TO THIS
       const allRecentAlerts = response.data.data;
 
       const newDiscoveredAlerts = allRecentAlerts.filter(

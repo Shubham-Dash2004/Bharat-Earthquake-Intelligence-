@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ---> ADD THESE LINES AT THE END <---
+# Environment variables
+.env
+.env.*
+!.env.example

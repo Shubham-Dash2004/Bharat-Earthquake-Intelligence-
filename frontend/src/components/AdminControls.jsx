@@ -1,5 +1,5 @@
 import {React, useState } from 'react';
-import axios from 'axios';
+import api from '../api'; // <-- ADD THIS (path is different)
 import './AdminControls.css';
 
 const AdminControls = ({ onRefresh }) => {
@@ -13,7 +13,7 @@ const AdminControls = ({ onRefresh }) => {
     try {
       // Step 1: Command the backend to run a new synchronization.
       // This is the command that will produce the log in your terminal.
-      await axios.post('/api/alerts/fetch-usgs');
+      await api.post('/alerts/fetch-usgs'); // <-- TO THIS
 
       // Step 2: AFTER the sync is done, call the onRefresh function 
       // from App.jsx to fetch the results and update the UI.
