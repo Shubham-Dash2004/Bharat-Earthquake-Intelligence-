@@ -43,3 +43,23 @@
   font-size: 0.9em;
   color: #333;
 }
+
+@media (max-width: 768px) {
+  .admin-controls-container {
+    top: 235px; /* Adjust as needed */
+    
+    /* Apply the same final fix */
+    left: 10px;
+    right: 10px;
+    width: auto;
+    transform: none; /* Explicitly remove any transform */
+
+    /* --- NEW COMPACT STYLES --- */
+    padding: 10px 15px; /* Reduced vertical padding */
+  }
+
+  .admin-controls-container h4 {
+      font-size: 0.9em; /* Smaller heading */
+      margin-bottom: 8px;
+  }
+}

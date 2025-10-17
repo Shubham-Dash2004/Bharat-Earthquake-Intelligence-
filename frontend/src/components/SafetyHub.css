@@ -41,3 +41,23 @@
 .safety-hub-button:hover {
   background-color: #138496;
 }
+
+@media (max-width: 768px) {
+  .safety-hub-container {
+     top: 325px; /* Adjust as needed */
+      /* Apply the same final fix */
+    left: 10px;
+    right: 10px;
+    width: auto;
+    transform: none;
+    bottom: auto;
+
+    /* --- NEW COMPACT STYLES --- */
+    padding: 10px 15px; /* Reduced vertical padding */
+  }
+  
+  .safety-hub-container h4 {
+    font-size: 0.9em; /* Smaller heading */
+    margin-bottom: 8px;
+  }
+}

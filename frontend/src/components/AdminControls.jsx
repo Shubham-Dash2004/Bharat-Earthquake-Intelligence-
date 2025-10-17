@@ -1,32 +1,31 @@
-import React, { useState } from 'react';
+import {React, useState } from 'react';
 import axios from 'axios';
 import './AdminControls.css';
 
-const AdminControls = ({ onNewAlerts }) => {
+const AdminControls = ({ onRefresh }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false); // New state for success feedback
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleRefresh = async () => {
     setIsLoading(true);
-    setIsSuccess(false); // Reset success state on new click
+    setIsSuccess(false);
     
     try {
-      // We still call the backend, but we no longer need to read the response details here.
+      // Step 1: Command the backend to run a new synchronization.
+      // This is the command that will produce the log in your terminal.
       await axios.post('/api/alerts/fetch-usgs');
+
+      // Step 2: AFTER the sync is done, call the onRefresh function 
+      // from App.jsx to fetch the results and update the UI.
+      await onRefresh();
       
-      // Call the function to refresh the map data in the parent component.
-      onNewAlerts(); 
-      
-      // Set success state to true to give user feedback.
       setIsSuccess(true);
     } catch (error) {
       console.error('Refresh error:', error);
-      // We can add an error state later if desired, but for now, we just log it.
     }
     
     setIsLoading(false);
 
-    // After a successful refresh, revert the button back to its normal state after 2 seconds.
     setTimeout(() => {
       setIsSuccess(false);
     }, 2000);
@@ -38,7 +37,6 @@ const AdminControls = ({ onNewAlerts }) => {
       <button 
         onClick={handleRefresh} 
         disabled={isLoading || isSuccess}
-        // Dynamically change the button's style based on its state
         className={`refresh-button ${isSuccess ? 'success-state' : ''}`}
       >
         {isLoading && 'Refreshing...'}

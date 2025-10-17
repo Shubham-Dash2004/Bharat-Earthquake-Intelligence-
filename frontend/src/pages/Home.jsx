@@ -2,14 +2,16 @@ import React from 'react';
 import Map from '../components/Map';
 import AnalyzeTextForm from '../components/AnalyzeTextForm';
 import AdminControls from '../components/AdminControls';
-import SafetyHub from '../components/SafetyHub'; // <-- Import the new component
-// Note: We need to pass the alerts and the fetchAlerts function down
-const Home = ({ alerts, fetchAlerts }) => {
+import SafetyHub from '../components/SafetyHub';
+
+// The props are now simpler
+const Home = ({ alerts, refreshData }) => {
   return (
     <>
       <AnalyzeTextForm />
-      <AdminControls onNewAlerts={fetchAlerts} />
-      <SafetyHub /> {/* <-- Add the component here */}
+      {/* Just pass the refreshData function to the button */}
+      <AdminControls onRefresh={refreshData} />
+      <SafetyHub />
       <Map alerts={alerts} />
     </>
   );
