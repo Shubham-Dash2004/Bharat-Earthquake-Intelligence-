@@ -1,0 +1,88 @@
+.safety-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  padding: 40px;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.safety-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.safety-header h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.safety-header p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.safety-column h2 {
+  font-size: 1.8em;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid;
+}
+
+.dos h2 {
+  color: #28a745; /* Green */
+  border-bottom-color: #28a745;
+}
+
+.donts h2 {
+  color: #dc3545; /* Red */
+  border-bottom-color: #dc3545;
+}
+
+.tip-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.tip-card p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.back-link-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.back-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .safety-grid {
+    grid-template-columns: 1fr;
+  }
+}

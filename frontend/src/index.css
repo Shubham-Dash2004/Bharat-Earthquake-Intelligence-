@@ -1,0 +1,65 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+/* ... (remove the old .leaflet-div-icon styles we added before) ... */
+
+/* Custom Leaflet Marker Styling */
+.custom-marker-icon {
+  background: none;
+  border: none;
+}
+
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #333;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.marker-pin::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  margin: 8px 0 0 8px;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.marker-dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -5px 0 0 -5px;
+  z-index: 1; /* Ensure dot is on top of the pin */
+  border: 1px solid white;
+}
+
+/* Severity Colors applied to the dot */
+.marker-dot.low { background-color: #28a745; }
+.marker-dot.medium { background-color: #ffc107; }
+.marker-dot.high { background-color: #dc3545; }
+.marker-dot.critical { background-color: #8b0000; }
+.marker-dot.unverified { background-color: #6c757d; } /* Gray for unverified */
+
+/* Add this block to the end of your index.css file */
+
+.leaflet-control-container .leaflet-top,
+.leaflet-control-container .leaflet-bottom {
+  z-index: 1010; /* This must be higher than our form's z-index (1000) */
+}

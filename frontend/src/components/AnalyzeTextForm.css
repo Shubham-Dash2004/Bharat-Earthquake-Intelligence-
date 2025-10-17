@@ -1,0 +1,128 @@
+.analysis-form-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  width: 380px;
+  max-width: 90%;
+  border-top: 4px solid #007bff;
+}
+
+.analysis-form-container h3 {
+  margin-top: 0;
+}
+
+.analysis-form-container textarea {
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.analysis-form-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.analysis-form-container button:hover {
+  background-color: #0056b3;
+}
+
+.analysis-form-container button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.results-container {
+  margin-top: 20px;
+}
+
+.results-container h4 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.no-results {
+  color: #555;
+  font-style: italic;
+}
+
+
+.verdict-title {
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.verdict-box {
+  padding: 15px;
+  border-radius: 6px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  background-color: #f8f9fa;
+}
+
+.verdict-status {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.verdict-reason {
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.source-link {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+.source-link:hover {
+  text-decoration: underline;
+}
+
+/* Color coding for verdicts */
+.verdict-confirmed {
+  border-left-color: #28a745; /* Green */
+}
+.verdict-confirmed .verdict-status {
+  color: #28a745;
+}
+
+.verdict-not-found {
+  border-left-color: #dc3545; /* Red */
+}
+.verdict-not-found .verdict-status {
+  color: #dc3545;
+}
+
+.verdict-inconclusive {
+  border-left-color: #ffc107; /* Yellow */
+}
+.verdict-inconclusive .verdict-status {
+  color: #b98900;
+}
